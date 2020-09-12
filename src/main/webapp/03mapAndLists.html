@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Using map to create lists (ul’s, tables etc.)</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <!-- a) Yesterday you used the array types map and join methods to create a UL with a number of names. 
+        Use this function+DOM manipulation to insert the UL somewhere in an HTML page.
+        b) Create a FORM with an input field + a submit button as sketched here.
+        Write the necessary code to add the new name to the array of names, and regenerate the <ul> with the updated list.
+        -->
+
+        <ul id ="table"></ul>
+        <br>
+        <form id="form" action="03mapAndLists.html" >
+            Write your name: 
+            <input type="text" id="name" name="fname"><br><br>
+            <button type="button" name="button" onclick="addName()"> 
+                Submit 
+            </button> 
+        </form>
+         <br>
+         
+        <form id="removeFirstForm" action="03mapAndLists.html" >
+            
+            <button type="button" name="button" onclick="removeFirst()"> 
+                Remove the first
+            </button> 
+        </form>
+         
+          <br>
+        <form id="removeLastForm" action="03mapAndLists.html" >
+            
+            <button type="button" name="button" onclick="removeLast()"> 
+                Remove the last
+            </button> 
+        </form>
+
+        <script>
+            var names = ["Lars", "Peter", "Jan", "Ian"];
+
+            let list = names.map(function (name) {
+                return "<li>" + name + "</li>";
+            });
+
+            let listAsString = "<ul>" + list.join("\n") + "</ul>";
+
+            let joinedList = list.join("");
+
+            document.getElementById("table").innerHTML = joinedList;
+
+
+            function addName() {
+                var tab = document.getElementById("table");
+                var firstName = document.getElementById("name");
+                var newList = document.createElement("newList");
+
+                newList.appendChild(document.createTextNode(firstName.value));
+                tab.appendChild(newList);
+                document.getElementById("table").appendChild(newList);
+            }
+            
+            function removeFirst(){
+                let tab = document.getElementById("table");
+                table.removeChild(table.firstElementChild);
+                
+            }
+            
+            function removeLast(){
+                let tab = document.getElementById("table");
+                table.removeChild(table.lastElementChild);
+                
+            }
+        </script> 
+
+    </body>
+</html>

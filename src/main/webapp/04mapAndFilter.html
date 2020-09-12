@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--Use the map  method to create a table with all data
+Write a function which, given this array, will return an HTML string with the array 
+formatted as a Table as sketched in this figure (styled with the Bootstrap class table):-->
+
+<html>
+    <head>
+        <title>Using map and filter to create dynamic table-rows</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        Her har jeg forsøgt at lave et skema over bilerne, men det kommer ikke frem. Se evt. koden på GitHub.
+
+        <script>
+            var cars = [
+                {id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000},
+                {id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900},
+                {id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000},
+                {id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799},
+                {id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799}
+            ];
+            let table = document.createElement('table');
+
+            for (let row of cars) {
+
+                table.insertRow();
+                for (let cell of row) {
+                    let newCell = table.rows[table.rows.length - 1].insertCell();
+                    newCell.textContent = cell;
+                }
+            }
+
+            document.body.appendChild(table);
+
+//function drawTable(tbody) {
+//    var tr, td;
+//    tbody = matchData.querySelector('tbody');
+//    // loop through data source
+//    for (var i = 0; i < cars.length; i++) {
+//        tr = tbody.insertRow(tbody.rows.length);
+//        td = tr.insertCell(tr.cells.length);
+//        td.setAttribute("align", "center");
+//        td.innerHTML = cars[i].id;
+//        td = tr.insertCell(tr.cells.length);
+//        td.innerHTML = cars[i].year;
+//        td = tr.insertCell(tr.cells.length);
+//        td.innerHTML = cars[i].make;
+//        td = tr.insertCell(tr.cells.length);
+//        td.innerHTML = cars[i].model;
+//        td = tr.insertCell(tr.cells.length);
+//        td.setAttribute("align", "center");
+//        td.innerHTML = cars[i].price;
+//    }
+//}
+//  drawTable("matchData");
+
+
+        </script>
+    </body>
+</html>
